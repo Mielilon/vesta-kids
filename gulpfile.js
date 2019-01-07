@@ -7,7 +7,7 @@ const imagemin = require('gulp-imagemin')
 const pngquant = require('imagemin-pngquant')
 const rigger = require('gulp-rigger') // Include files with //= ...
 const sourcemaps = require('gulp-sourcemaps')
-const uglify = require('gulp-uglify')
+const uglify = require('gulp-uglify-es').default
 const prefixer = require('gulp-autoprefixer')
 const cssmin = require('gulp-minify-css')
 const rimraf = require('rimraf')
@@ -33,7 +33,7 @@ var path = {
     src: {
         html: 'src/*.html',
         js: 'src/js/main.js',
-        style: 'src/style/main.sass',
+        style: 'src/style/*.sass',
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*'
     },
