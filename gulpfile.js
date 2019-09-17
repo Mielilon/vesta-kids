@@ -1,17 +1,18 @@
-const gulp = require("gulp")
-const sass = require("gulp-sass")
-const watch = require("gulp-watch")
-const browserSync = require("browser-sync")
-const reload = require("browser-sync").reload
-const imagemin = require("gulp-imagemin")
-const pngquant = require("imagemin-pngquant")
-const rigger = require("gulp-rigger") // Include files with //= ...
-const sourcemaps = require("gulp-sourcemaps")
-const uglify = require("gulp-uglify-es").default
-const prefixer = require("gulp-autoprefixer")
-const cssmin = require("gulp-minify-css")
-const rimraf = require("rimraf")
-const plumber = require("gulp-plumber")
+const gulp = require("gulp");
+const sass = require("gulp-sass");
+const watch = require("gulp-watch");
+const browserSync = require("browser-sync");
+const reload = require("browser-sync").reload;
+const imagemin = require("gulp-imagemin");
+const pngquant = require("imagemin-pngquant");
+const rigger = require("gulp-rigger"); // Include files with //= ...
+const sourcemaps = require("gulp-sourcemaps");
+const uglify = require("gulp-uglify-es").default;
+const prefixer = require("gulp-autoprefixer");
+const cssmin = require("gulp-minify-css");
+const rimraf = require("rimraf");
+const plumber = require("gulp-plumber");
+const pug = require("gulp-pug");
 
 var config = {
   server: {
@@ -21,7 +22,7 @@ var config = {
   host: "localhost",
   port: 9000,
   logPrefix: "Frontend_Devil"
-}
+};
 
 var path = {
   build: {
@@ -33,7 +34,7 @@ var path = {
     webfonts: "build/webfonts/"
   },
   src: {
-    html: "src/*.html",
+    html: "src/*.pug",
     js: "src/js/main.js",
     style: "src/style/*.sass",
     img: "src/img/**/*.*",
@@ -41,27 +42,28 @@ var path = {
     webfonts: "src/webfonts/**/*.*"
   },
   watch: {
-    html: "src/**/*.html",
+    html: "src/**/*.pug", // PUG or HTML file here
     js: "src/js/**/*.js",
     style: "src/style/**/*.sass",
     img: "src/img/**/*.*",
     fonts: "src/fonts/**/*.*"
   },
   clean: "./build"
-}
+};
 
 gulp.task("html:build", function() {
   gulp
     .src(path.src.html) //Выберем файлы по нужному пути
     .pipe(plumber())
     .pipe(rigger()) //Прогоним через rigger
+    .pipe(pug()) // remove if use HTML
     .pipe(gulp.dest(path.build.html)) //Выплюнем их в папку build
     .pipe(
       reload({
         stream: true
       })
-    ) //И перезагрузим наш сервер для обновлений
-})
+    ); //И перезагрузим наш сервер для обновлений
+});
 
 gulp.task("js:build", function() {
   gulp
@@ -76,8 +78,8 @@ gulp.task("js:build", function() {
       reload({
         stream: true
       })
-    )
-})
+    );
+});
 
 gulp.task("style:build", function() {
   gulp
@@ -93,8 +95,8 @@ gulp.task("style:build", function() {
       reload({
         stream: true
       })
-    )
-})
+    );
+});
 
 gulp.task("image:build", function() {
   gulp
@@ -117,14 +119,14 @@ gulp.task("image:build", function() {
       reload({
         stream: true
       })
-    )
-})
+    );
+});
 
 gulp.task("fonts:build", function() {
-  gulp.src(path.src.fonts).pipe(gulp.dest(path.build.fonts))
+  gulp.src(path.src.fonts).pipe(gulp.dest(path.build.fonts));
 
-  gulp.src(path.src.webfonts).pipe(gulp.dest(path.build.webfonts))
-})
+  gulp.src(path.src.webfonts).pipe(gulp.dest(path.build.webfonts));
+});
 
 gulp.task("build", [
   "html:build",
@@ -132,32 +134,32 @@ gulp.task("build", [
   "style:build",
   "fonts:build",
   "image:build"
-])
+]);
 
 gulp.task("watch", function() {
   watch([path.watch.html], function(event, cb) {
-    gulp.start("html:build")
-  })
+    gulp.start("html:build");
+  });
   watch([path.watch.style], function(event, cb) {
-    gulp.start("style:build")
-  })
+    gulp.start("style:build");
+  });
   watch([path.watch.js], function(event, cb) {
-    gulp.start("js:build")
-  })
+    gulp.start("js:build");
+  });
   watch([path.watch.img], function(event, cb) {
-    gulp.start("image:build")
-  })
+    gulp.start("image:build");
+  });
   watch([path.watch.fonts], function(event, cb) {
-    gulp.start("fonts:build")
-  })
-})
+    gulp.start("fonts:build");
+  });
+});
 
 gulp.task("webserver", function() {
-  browserSync(config)
-})
+  browserSync(config);
+});
 
 gulp.task("clean", function(cb) {
-  rimraf(path.clean, cb)
-})
+  rimraf(path.clean, cb);
+});
 
-gulp.task("default", ["build", "webserver", "watch"])
+gulp.task("default", ["build", "webserver", "watch"]);
