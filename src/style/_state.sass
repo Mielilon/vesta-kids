@@ -1,1 +1,36 @@
 // State
+
+.button
+    font-weight: 600
+    font-size: 17px
+    line-height: 100%
+    outline: none
+    border: 1px solid $violet
+    border-radius: 100px
+    padding: 12px 25px
+    cursor: pointer
+    transition: 0.3s
+    &_transparent
+        color: $violet
+        background-color: transparent
+        &:hover
+            color: $white
+            background-color: $violet
+            transition: 0.3s
+        &:active
+            background-color: $darkViolet
+
+
+.f-j-s-b
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+@for $i from 1 through 20
+    .g-t-c-#{$i}
+        display: grid
+        grid-template-columns: repeat($i, 1fr)
+        grid-auto-rows: auto
+    .g-g-#{$i}
+        display: grid
+        grid-gap: 4px * $i
