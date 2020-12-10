@@ -7,8 +7,9 @@
     outline: none
     border: 1px solid $violet
     border-radius: 100px
-    padding: 12px 25px
+    padding: 14px 25px
     cursor: pointer
+    font-family: 'Montserrat', sans-serif
     transition: 0.3s
     &_transparent
         color: $violet
@@ -19,7 +20,16 @@
             transition: 0.3s
         &:active
             background-color: $darkViolet
+    &_violet
+        color: $white
+        background-color: $violet
+        &:active
+            background-color: $darkViolet
+            transition: 0.3s !important
 
+
+.description
+    line-height: 150%
 
 .f-j-s-b
     display: flex
@@ -34,3 +44,26 @@
     .g-g-#{$i}
         display: grid
         grid-gap: 4px * $i
+
+@for $i from 1 through 25
+    .pa-#{$i}
+        padding: 4px * $i !important
+    .px-#{$i}
+        padding-left: 4px * $i !important
+        padding-right: 4px * $i !important
+    .py-#{$i}
+        padding-top: 4px * $i !important
+        padding-bottom: 4px * $i !important
+
+    .ma-#{$i}
+        margin: 4px * $i !important
+    .mx-#{$i}
+        margin-left: 4px * $i !important
+        margin-right: 4px * $i !important
+    .my-#{$i}
+        margin-top: 4px * $i !important
+        margin-bottom: 4px * $i !important
+
+    @each $name, $direction in (ml, left), (mt, top), (mr, right), (mb, bottom)
+        .#{$name}-#{$i}
+            margin-#{$direction}: 4px * $i !important
