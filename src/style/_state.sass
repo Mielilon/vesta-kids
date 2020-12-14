@@ -23,10 +23,21 @@
     &_violet
         color: $white
         background-color: $violet
+        &:hover
+            filter: drop-shadow(0px 0px 30px rgba(137, 45, 254, 0.5))
         &:active
             background-color: $darkViolet
             transition: 0.3s !important
-
+            filter: drop-shadow(0px 0px 0px rgba(136, 45, 254, 0))
+    &_yellow
+        color: $black
+        background-color: $yellow
+        border-color: $black
+        &:hover
+            color: $yellow
+            background-color: $black
+        &:active
+            transform: scale(.9)  
 
 .description
     line-height: 150%

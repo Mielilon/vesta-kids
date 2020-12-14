@@ -19,24 +19,6 @@ a
   color: inherit
   transition: .25s ease
 
-.container
-  width: 100%
-  position: relative
-  display: grid
-  grid-template-rows: auto
-  grid-template-columns: auto [p-start] 30px [c-start] 1200px [c-end] 30px [p-end] auto
-  @include respond-to(xxl)
-    grid-template-columns: auto [p-start] 30px [c-start] 1100px [c-end] 30px [p-end] auto
-  @include respond-to(xl)
-    grid-template-columns: auto [p-start] 30px [c-start] 900px [c-end] 30px [p-end] auto
-  @include respond-to(lg)
-    grid-template-columns: auto [p-start] 30px [c-start] 660px [c-end] 30px [p-end] auto
-  @include respond-to(md)
-    grid-template-columns: auto [p-start] 30px [c-start] 480px [c-end] 30px [p-end] auto
-  @include respond-to(sm)
-    grid-template-columns: [p-start] 15px [c-start] auto [c-end] 15px [p-end]
-  &>.content 
-    grid-column: c-start/c-end
 
 h1
   font-weight: 900
@@ -44,14 +26,16 @@ h1
   line-height: 120%
   margin: 25px 0
 h2
-  font-size: 2.6rem
-  margin: 15px 0
+  font-weight: 900
+  font-size: 38px
+  line-height: 120%
 h3
   font-size: 2rem
   margin: 15px 0
 h4
-  font-size: 1.4rem
-  margin: 15px 0
+  font-weight: bold
+  font-size: 17px
+  line-height: 125%
 p
   font-size: 1rem
   margin: 10px 0
