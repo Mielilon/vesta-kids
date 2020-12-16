@@ -1,4 +1,5 @@
 //= jquery.min.js
+//= owl.carousel.js
 
 AOS.init();
 
@@ -17,3 +18,24 @@ AOS.init();
 //   $('#figureLightYellow').css('transform', `translate(${resultedX * 1.5}px, ${resultedY * 1.5}px)`)
 //   $('#figureYellow').css('transform', `translate(${resultedX * 0.5}px, ${resultedY * 0.5}px)`)
 // });
+
+
+
+$(".reviews__carousel").owlCarousel({
+    loop: true,
+    nav: false,
+    margin: 30,
+    dots: true,
+    autoplay: true,
+    smartSpeed: 500,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
+    responsive: {
+        0: {
+            items: 1,
+        },
+        600: {
+            items: 2,
+        }
+    },
+});
