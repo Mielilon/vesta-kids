@@ -39,3 +39,9 @@ $(".reviews__carousel").owlCarousel({
         }
     },
 });
+
+
+$(".answers__item").click(function (event) {
+    $(".answers__item").removeClass('answers__item_active ');
+    $(this).toggleClass('answers__item_active ');
+  })

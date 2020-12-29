@@ -54,3 +54,28 @@
         font-weight: 500
         font-size: 16px
         line-height: 150%
+    .owl-dots
+        top: -70px !important
+        right: 0 !important
+        position: absolute
+    .owl-dot
+        outline: none
+        position: relative
+        span
+            border: 1px solid $violet
+            background-color: $white !important
+            height: 20px !important
+            width: 20px !important
+        &.active
+            &::before
+                content: ""
+                position: absolute
+                height: 12px
+                width: 12px
+                background-color: $violet
+                border-radius: 50%
+                top: 0
+                left: 0
+                right: 0
+                bottom: 0
+                margin: auto

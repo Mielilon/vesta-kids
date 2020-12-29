@@ -1,0 +1,83 @@
+.answers
+    margin-top: 150px
+    &__img-wrapper
+        position: relative
+        height: 540px
+    &__img
+        position: absolute
+        &:last-child
+            bottom: 10px
+            right: 10px
+        &:nth-child(2)
+            left: 10px
+            top: 10px
+    &__item
+        border: 1px solid #FDF2D8
+        border-radius: 100px
+        padding: 10px 20px 10px 80px
+        position: relative
+        margin-bottom: 20px
+        transition: .3s
+        cursor: pointer
+        display: flex
+        align-items: flex-start
+        justify-content: center
+        flex-direction: column
+        &::before
+            transition: .3s
+            content: ""
+            position: absolute
+            height: 50px
+            width: 50px
+            background-color: #F4EBFF
+            left: 10px
+            border-radius: 100px
+    &__number
+        position: absolute
+        left: 10px
+        height: 50px
+        width: 50px
+        background-color: rgba(250, 229, 176, 0.5)
+        border-radius: 100px
+        display: flex
+        align-items: center
+        justify-content: center
+        color: $violet
+        font-weight: bold
+        font-size: 24px
+        
+
+    &__little-title
+        font-weight: 600
+        margin: 14px 0
+    &__info
+        opacity: 0
+        position: absolute
+        height: 0
+        z-index: -100
+        font-size: 15px
+        line-height: 150%
+        margin-top: 0
+        transform: translateY(-30px)
+
+            
+
+    &__item_active 
+        border-color: $violet
+        border-radius: 30px
+        transition: .3s
+        &::before
+            height: calc( 100% - 20px )
+            transition: .3s
+        .answers__number
+            background-color: $violet
+            color: #FAE5B0
+            transition: .3s
+            top: 10px
+        .answers__info
+            opacity: 1
+            z-index: 1
+            position: relative
+            transform: translateY(0px)
+            transition: .3s
+            height: auto
