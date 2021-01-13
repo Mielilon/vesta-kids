@@ -1,0 +1,39 @@
+.proposal
+    margin-top: 100px
+    &__info
+        width: 100%
+        background-color: $violet
+        color: $white
+        border-radius: 50px
+        overflow: hidden
+        position: relative
+        display: flex
+        align-items: center
+        justify-content: center
+        flex-direction: column
+        padding: 60px 0
+    &__icon
+        position: absolute
+        &:nth-child(1)
+            top: 0
+            left: 0
+        &:nth-child(2)
+            top: 0
+            right: 0
+        &:nth-child(3)
+            bottom: 0
+            right: 0
+        &:nth-child(4)
+            bottom: 0
+            left: 0
+    &__button
+        padding: 20px 50px
+        &:hover
+            transform: scale(1.1)
+            color: $violet
+            background-color: $white
+            
+    &__title
+        margin: 0
+    &__description
+        margin: 20px 0 36px

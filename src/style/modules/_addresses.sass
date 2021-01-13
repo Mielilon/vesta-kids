@@ -1,0 +1,24 @@
+.addresses
+    margin-top: 120px
+    &__items-wrapper
+        margin-top: 50px
+    &__address
+        font-weight: 500
+        font-size: 18px
+        line-height: 140%
+    &__route
+        color: $violet
+        text-decoration: none
+        font-weight: 600
+        font-size: 14px
+        line-height: 140%
+        padding-left: 14px
+        position: relative
+        display: inline-block
+        &:hover
+            transform: scale(1.1)
+        &::before
+            content: url('./../img/icons/route.svg')
+            position: absolute
+            left: 0
+            top: 2px
